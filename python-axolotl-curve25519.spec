@@ -1,17 +1,35 @@
-Name: python-axolotl-curve25519
+%global pname axolotl-curve25519
+
+Name: python-%{pname}
 Version: 0.1.35
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: python wrapper for curve25519
 Group: Development/Libraries
-License: BSD
+License: GPLv3+
 URL: https://github.com/tgalal/%{name}
 Source: https://github.com/tgalal/%{name}/archive/master.zip
 BuildRoot: %{_tmppath}/%{pname}-%{version}-%{release}-buildroot
-BuildRequires: python-devel
-
 
 %description
 This is python wrapper for curve25519 library with ed25519 signatures.
+
+
+%package -n python2-%{pname}
+Summary: python wrapper for curve25519
+BuildRequires: python2-devel
+
+%description -n python2-%{pname}
+This is python wrapper for curve25519 library with ed25519 signatures.
+Python 2 version.
+
+
+%package -n python3-%{pname}
+Summary: python wrapper for curve25519
+BuildRequires: python3-devel
+
+%description -n python3-%{pname}
+This is python wrapper for curve25519 library with ed25519 signatures.
+Python 3 version.
 
 
 %prep
@@ -19,19 +37,34 @@ This is python wrapper for curve25519 library with ed25519 signatures.
 
 
 %build
-python setup.py build
+%py2_build
+%py3_build
 
 
 %install
 [ '%{buildroot}' != '/' ] && rm -rf %{buildroot}
-python setup.py install --root=%{buildroot} --record=INSTALLED_FILES
+%py2_install
+%py3_install
 
 
 %clean
 [ '%{buildroot}' != '/' ] && rm -rf %{buildroot}
 
 
-%files -f INSTALLED_FILES
-%defattr(-,root,root)
+%files -n python2-%{pname}
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
+%{python2_sitearch}/*.so
+%{python2_sitearch}/*.egg-info/
+
+
+%files -n python3-%{pname}
+%{!?_licensedir:%global license %%doc}
+%license LICENSE
+%{python3_sitearch}/*.so
+%{python3_sitearch}/*.egg-info/
+
+
+%changelog
+* Fri Mar  9 2018 Philippe Kueck <projects@unixadm.org> - 0.1.35-1
+- add python3 packages
