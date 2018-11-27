@@ -9,6 +9,7 @@ License: GPLv3+
 URL: https://github.com/tgalal/%{name}
 Source: https://github.com/tgalal/%{name}/archive/master.zip
 BuildRoot: %{_tmppath}/%{pname}-%{version}-%{release}-buildroot
+BuildRequires: gcc
 
 %description
 This is python wrapper for curve25519 library with ed25519 signatures.
