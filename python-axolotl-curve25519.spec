@@ -34,7 +34,7 @@ Python 3 version.
 
 
 %prep
-%setup -q -n %{name}-master
+%setup -q -n %{name}-0.4.1-2
 
 
 %build
