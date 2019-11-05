@@ -1,13 +1,13 @@
 %global pname axolotl-curve25519
 
 Name: python-%{pname}
-Version: 0.1.35
-Release: 3%{?dist}
+Version: 0.4.1.2
+Release: 1%{?dist}
 Summary: python wrapper for curve25519
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/tgalal/%{name}
-Source: https://github.com/tgalal/%{name}/archive/master.zip
+Source: https://github.com/tgalal/%{name}/archive/0.4.1-2.tar.gz
 BuildRoot: %{_tmppath}/%{pname}-%{version}-%{release}-buildroot
 BuildRequires: gcc
 
@@ -67,5 +67,8 @@ Python 3 version.
 
 
 %changelog
+* Tue Nov  5 2019 Philippe Kueck <projects@unixadm.org> - 0.4.1.2-1
+- new upstream version
+
 * Fri Mar  9 2018 Philippe Kueck <projects@unixadm.org> - 0.1.35-1
 - add python3 packages
