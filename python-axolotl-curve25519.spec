@@ -9,6 +9,9 @@ URL: https://github.com/tgalal/%{name}
 Source: https://github.com/tgalal/%{name}/archive/0.4.1-2.tar.gz
 BuildRoot: %{_tmppath}/%{pname}-%{version}-%{release}-buildroot
 BuildRequires: gcc
+BuildRequires: python3-rpm-macros
+BuildRequires: python3-devel
+BuildRequires: python3-setuptools
 
 %description
 This is python wrapper for curve25519 library with ed25519 signatures.
